@@ -53,10 +53,10 @@ class LimitholdemEnv2(Env):
         # We will use a 17 vector to represent this. This is in not specific order
         lookupsuite = {'S' : 0 , 'C' : 1, 'D' : 2, 'H' : 3} 
         lookupcard = {'T' : 9 ,'J' : 10, 'Q' : 11, 'K' : 12, 'A' : 13}
-        indexcard = lookupcard.get(hand[0][1],hand[0][1])
+        indexcard = int(lookupcard.get(hand[0][1],hand[0][1]))
         indexsuite  = lookupsuite.get(hand[0][0])
         
-        indexcard2 = lookupcard.get(hand[1][1],hand[1][1])
+        indexcard2 = int(lookupcard.get(hand[1][1],hand[1][1]))
         indexsuite2  = lookupsuite.get(hand[1][0])
         
         handindex = np.zeros(34)
