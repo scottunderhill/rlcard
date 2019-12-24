@@ -56,7 +56,7 @@ class LimitholdemEnv2(Env):
         indexcard = lookupcard.get(hand[0][1],hand[0][1])
         indexsuite  = lookupcard.get(hand[0][0])
         
-        indexcard2 = lookupcard.get(hand[1[1],hand[1][1])
+        indexcard2 = lookupcard.get(hand[1][1],hand[1][1])
         indexsuite2  = lookupcard.get(hand[1][0])
         
         handindex = np.zeros(34)
