@@ -72,8 +72,8 @@ class LimitholdemEnv2(Env):
         obs = np.zeros(52)
         obs[idx] = 1
         # obs.append(handindex)
-        obs = np.concatenate(obs, handindex)
-        obs = np.concatenate(obs, np.zeros(20))
+        obs = np.append(obs, handindex)
+        obs = np.append(obs, np.zeros(20))
         #obs.append()
         for i, num in enumerate(raise_nums):
             obs[52 + 34 + i * 5 + num] = 1
