@@ -61,6 +61,7 @@ class LimitholdemEnv2(Env):
         
         handindex = np.zeros(34)
         #encoding with suite . First card is 2
+        print(indexcard)
         handindex[indexcard - 2] = 1;
         handindex[13 + indexsuite] = 1
         handindex[17 + indexcard2 - 2] = 1;
