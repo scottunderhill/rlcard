@@ -54,16 +54,16 @@ class LimitholdemEnv2(Env):
         lookupsuite = {'S' : 0 , 'C' : 1, 'D' : 2, 'H' : 3} 
         lookupcard = {'J' : 10, 'Q' : 11, 'K' : 12, 'A' : 13}
         indexcard = lookupcard.get(hand[0][1],hand[0][1])
-        indexsuite  = lookupcard.get(hand[0][0])
+        indexsuite  = lookupsuite.get(hand[0][0])
         
         indexcard2 = lookupcard.get(hand[1][1],hand[1][1])
-        indexsuite2  = lookupcard.get(hand[1][0])
+        indexsuite2  = lookupsuite.get(hand[1][0])
         
         handindex = np.zeros(34)
-        #encoding with suite 
-        handindex[indexcard - 1] = 1;
+        #encoding with suite . First card is 2
+        handindex[indexcard - 2] = 1;
         handindex[13 + indexsuite] = 1
-        handindex[17 + indexcard2 - 1] = 1;
+        handindex[17 + indexcard2 - 2] = 1;
         handindex[17 + 13 + indexsuite2] = 1
         
         
