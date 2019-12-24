@@ -19,7 +19,7 @@ register(
 )
 register(
     env_id='limit-holdem2',
-    entry_point='rlcard.envs.limitholdem:LimitholdemEnv2',
+    entry_point='rlcard.envs.limitholdem2:LimitholdemEnv2',
 )
 
 register(
