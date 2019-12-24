@@ -15,7 +15,7 @@ class LimitholdemEnv2(Env):
         '''
         super().__init__(Game(allow_step_back), allow_step_back)
         self.actions = ['call', 'raise', 'fold', 'check']
-        self.state_shape=[72]
+        self.state_shape=[106]
 
         with open(os.path.join(rlcard.__path__[0], 'games/limitholdem/card2index.json'), 'r') as file:
             self.card2index = json.load(file)
@@ -66,12 +66,12 @@ class LimitholdemEnv2(Env):
         handindex[17 + indexcard2 - 2] = 1;
         handindex[17 + 13 + indexsuite2] = 1
         
-        
+        # 52  + 34 + 20 = 106
         cards = public_cards 
         idx = [self.card2index[card] for card in cards]
         obs = np.zeros(52)
         obs[idx] = 1
-        obs.append(handindex)
+        # obs.append(handindex)
         obs = np.concatenate(obs, handindex)
         obs = np.concatenate(obs, np.zeros(20))
         #obs.append()
