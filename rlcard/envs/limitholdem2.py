@@ -52,7 +52,7 @@ class LimitholdemEnv2(Env):
         # Card encoding format SA
         # We will use a 17 vector to represent this. This is in not specific order
         lookupsuite = {'S' : 0 , 'C' : 1, 'D' : 2, 'H' : 3} 
-        lookupcard = {'J', : 10, 'Q' : 11, 'K', 12, 'A', 13}
+        lookupcard = {'J' : 10, 'Q' : 11, 'K' : 12, 'A' : 13}
         indexcard = lookupcard.get(hand[0][1],hand[0][1])
         indexsuite  = lookupcard.get(hand[0][0])
         
