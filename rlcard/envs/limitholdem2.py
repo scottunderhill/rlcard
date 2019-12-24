@@ -47,12 +47,34 @@ class LimitholdemEnv2(Env):
         public_cards = state['public_cards']
         hand = state['hand']
         raise_nums = state['raise_nums']
-        cards = public_cards + hand
+
+        # Change 1, public cards and hand should not be combined. 
+        # Card encoding format SA
+        # We will use a 17 vector to represent this. This is in not specific order
+        lookupsuite = {'S' : 0 , 'C' : 1, 'D' : 2, 'H' : 3} 
+        lookupcard = {'J', : 10, 'Q' : 11, 'K', 12, 'A', 13}
+        indexcard = lookupcard.get(hand[0][1],hand[0][1])
+        indexsuite  = lookupcard.get(hand[0][0])
+        
+        indexcard2 = lookupcard.get(hand[1[1],hand[1][1])
+        indexsuite2  = lookupcard.get(hand[1][0])
+        
+        handindex = np.zeros(34)
+        #encoding with suite 
+        handindex[indexcard - 1] = 1;
+        handindex[13 + indexsuite] = 1
+        handindex[17 + indexcard2 - 1] = 1;
+        handindex[17 + 13 + indexsuite2] = 1
+        
+        
+        cards = public_cards 
         idx = [self.card2index[card] for card in cards]
-        obs = np.zeros(72)
+        obs = np.zeros(52)
         obs[idx] = 1
+        obs.append(handindex)
+        obs.append(np.zeros(20))
         for i, num in enumerate(raise_nums):
-            obs[52 + i * 5 + num] = 1
+            obs[52 + 34 + i * 5 + num] = 1
         processed_state['obs'] = obs
 
         return processed_state
